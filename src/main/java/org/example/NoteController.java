@@ -20,4 +20,9 @@ public class NoteController {
         Note note = noteList.get(id);
         return note.toString();
     }
+
+    public void deleteNote(int index) {
+        // check if its not empty
+        noteList.remove(index);
+    }
 }

@@ -109,4 +109,7 @@ public class Note {
                 ", priority=" + priority +
                 '}';
     }
+
+    public void update(String s, String new_description, String new_text, boolean b) {
+    }
 }

@@ -36,6 +36,23 @@ public class NotesTest {
     }
 
     @Test
+    public void deleteNoteTest() {
+
+        int currentNumberOfNotes = noteController.size();
+        noteController.deleteNote(0);
+        Assert.assertEquals(currentNumberOfNotes - 1, noteController.size());
+
+    }
+
+    @Test
+    public void updateNoteTest() {
+        note.update("01/01/2023", "New description", "New text", true);
+        Assert.assertEquals(note.getCompletioDate(), "01/01/2023");
+
+    }
+
+
+    @Test
     public void displayNoteTest() {
 
         noteController.addNote(note);
