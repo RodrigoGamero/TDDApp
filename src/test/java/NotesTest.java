@@ -3,35 +3,46 @@ import org.example.NoteController;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 public class NotesTest {
 
     NoteController noteController;
+    Note note;
 
     @Before
-    public void NotesTest(){
+    public void initialization() {
         noteController = new NoteController();
+        note = new Note(noteController.size() ,
+                "01/02/2022",
+                "30/02/2022",
+                "my note description",
+                "Do this and that",
+                true,
+                "wwww.link.com",
+                "do it in the morning",
+                true
+        );
     }
 
-    @org.testng.annotations.Test
-    public void addNoteTest(Note note){
+    @Test
+    public void addNoteTest() {
 
         int currentNumberOfNotes = noteController.size();
         noteController.addNote(note);
-        Assert.assertEquals(currentNumberOfNotes+1,noteController.size());
+        Assert.assertEquals(currentNumberOfNotes + 1, noteController.size());
 
     }
 
-    @ParameterizedTest
-    @CsvSource({"39,Fizz", "46,NO", "75,FizzBuzz", "13,NO",
-            "28,NO", "375,FizzBuzz", "92,NO", "45,FizzBuzz",
-            "65,Buzz", "98,NO", "135,FizzBuzz", "9,Fizz",
-            "63,Fizz", "98,NO", "103,NO", "42,Fizz",
-            "90,FizzBuzz", "74,NO", "81,Fizz", "35,Buzz"})
-    public void displayNoteTest(int id, String expectedResult){
-        // Note note=new Note();
+    @Test
+    public void displayNoteTest() {
+
+        noteController.addNote(note);
         // Note actualNote=note.displayNote(note.id);
-        String actualNote = noteController.displayNote(id);
-        Assert.assertEquals(actualNote,expectedResult);
+        String actualNote = noteController.displayNote(note.getId());
+        Assert.assertEquals(actualNote, note.toString());
     }
+
+
 }

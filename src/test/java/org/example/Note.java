@@ -5,8 +5,8 @@ import java.util.Date;
 public class Note {
 
     private int id;
-    private Date creationDate;
-    private Date completioDate;
+    private String creationDate;
+    private String completioDate;
     private String description;
     private String text;
     private boolean state;
@@ -14,7 +14,7 @@ public class Note {
     private String mentions;
     private boolean priority;
 
-    public Note( int id,Date creationDate, Date completioDate, String description, String text, boolean state, String link, String mentions, boolean priority) {
+    public Note( int id,String creationDate, String completioDate, String description, String text, boolean state, String link, String mentions, boolean priority) {
         this.id = id;
         // Autoincrement
         this.creationDate = creationDate;
@@ -31,19 +31,19 @@ public class Note {
         return id;
     }
 
-    public Date getCreationDate() {
+    public String getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(Date creationDate) {
+    public void setCreationDate(String creationDate) {
         this.creationDate = creationDate;
     }
 
-    public Date getCompletioDate() {
+    public String getCompletioDate() {
         return completioDate;
     }
 
-    public void setCompletioDate(Date completioDate) {
+    public void setCompletioDate(String completioDate) {
         this.completioDate = completioDate;
     }
 
