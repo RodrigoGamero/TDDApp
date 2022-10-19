@@ -110,6 +110,11 @@ public class Note {
                 '}';
     }
 
-    public void update(String s, String new_description, String new_text, boolean b) {
+    public void update(String completionDate, String description, String text, boolean state) {
+
+        setCompletioDate(completionDate);
+        setDescription(description);
+        setText(text);
+        setState(state);
     }
 }

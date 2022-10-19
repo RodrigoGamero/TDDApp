@@ -37,7 +37,7 @@ public class NotesTest {
 
     @Test
     public void deleteNoteTest() {
-
+        noteController.addNote(note);
         int currentNumberOfNotes = noteController.size();
         noteController.deleteNote(0);
         Assert.assertEquals(currentNumberOfNotes - 1, noteController.size());
